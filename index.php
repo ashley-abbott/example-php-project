@@ -25,7 +25,7 @@ $app->add(new \Slim\Middleware\HttpBasicAuthentication(array(
 // grouping the /api route, see Slim's group() method documentation for more
 $app->group('/api', function () use ($app) {
 
-    $data = ['And again', 9876543210];
+    $data = ['This app auto deploys via CloudBuild but does not promote, 9876543210];
 
     // api route "test" which just gives back some demo data
     $app->get('/test', function ($request, $response, $args) use ($data) {
