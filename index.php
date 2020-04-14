@@ -25,7 +25,7 @@ $app->add(new \Slim\Middleware\HttpBasicAuthentication(array(
 // grouping the /api route, see Slim's group() method documentation for more
 $app->group('/api', function () use ($app) {
 
-    $data = ['Greetings', 123456789];
+    $data = ['This api has been deployed automatically by cloud build', 123456789];
 
     // api route "test" which just gives back some demo data
     $app->get('/test', function ($request, $response, $args) use ($data) {
