@@ -14,7 +14,7 @@ $app->add(new \Slim\Middleware\HttpBasicAuthentication(array(
     "secure" => false,
     // users (name and password), credentials will be passed via request header, see the client.html for more info
     "users" => [
-        "demouser" => "123",
+        "testuser" => "Pa55W0rd123",
     ],
     "error" => function ($request, $response, $arguments) {
         // return the 401 "unauthorized" status code when auth error occurs
@@ -25,13 +25,13 @@ $app->add(new \Slim\Middleware\HttpBasicAuthentication(array(
 // grouping the /api route, see Slim's group() method documentation for more
 $app->group('/api', function () use ($app) {
 
-    $dataForApi = ['yo', 777];
+    $data = ['Greetings', 123456789];
 
     // api route "test" which just gives back some demo data
-    $app->get('/test', function ($request, $response, $args) use ($dataForApi) {
+    $app->get('/test', function ($request, $response, $args) use ($data) {
         return $response->withJson([
-            'demoText' => $dataForApi[0], // "yo"
-            'demoNumbers' => $dataForApi[1] // "777"
+            'Text' => $data[0], 
+            'Numbers' => $data[1] 
         ]);
     });
 });
